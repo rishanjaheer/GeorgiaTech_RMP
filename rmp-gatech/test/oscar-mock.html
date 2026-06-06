@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSCAR Mock — RMP Extension Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f5f5f5; }
+    h1 { color: #003057; }
+    .note { background: #fff3cd; border: 1px solid #ffc107; padding: 12px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; }
+    table.datadisplaytable { border-collapse: collapse; background: #fff; width: 100%; max-width: 900px; }
+    table.datadisplaytable th, table.datadisplaytable td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+    table.datadisplaytable th { background: #003057; color: #fff; }
+    th.ddlabel, td.dddefault { font-size: 13px; }
+    .section-title { margin-top: 32px; color: #003057; }
+    button { margin-top: 16px; padding: 8px 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>OSCAR Course Search — Mock Test Page</h1>
+  <p class="note">
+    This page mimics the classic OSCAR schedule results layout.
+    Load the extension unpacked, serve this folder with <code>python3 -m http.server 8080</code>,
+    then open <code>http://localhost:8080/test/oscar-mock.html</code>.
+    RMP badges should appear next to instructor names within a few seconds.
+  </p>
+
+  <h2 class="section-title">CS 1331 — Object-Oriented Programming</h2>
+  <table class="datadisplaytable" summary="Class schedule">
+    <tr>
+      <th class="ddlabel">Associated Term:</th>
+      <td class="dddefault">Fall 2025</td>
+    </tr>
+    <tr>
+      <th class="ddlabel">Instructor(s):</th>
+      <td class="dddefault">Starner, Thad (P)<br>Zhu, Bo</td>
+    </tr>
+    <tr>
+      <th class="ddlabel">Schedule Type:</th>
+      <td class="dddefault">Lecture</td>
+    </tr>
+  </table>
+
+  <h2 class="section-title">CS 2110 — Computer Organization</h2>
+  <table class="datadisplaytable" summary="Class schedule">
+    <tr>
+      <th class="ddlabel">Instructor(s):</th>
+      <td class="dddefault">Reaves, Brian</td>
+    </tr>
+  </table>
+
+  <h2 class="section-title">MATH 2551 — Multivariable Calculus</h2>
+  <table class="datadisplaytable" summary="Class schedule">
+    <tr>
+      <th class="ddlabel">Instructor(s):</th>
+      <td class="dddefault">Unknown, Professor</td>
+    </tr>
+  </table>
+
+  <h2 class="section-title">Dynamic injection test</h2>
+  <p>Click to simulate OSCAR loading more results after the page opens (tests MutationObserver).</p>
+  <div id="dynamic-results"></div>
+  <button id="add-course">Load another course section</button>
+
+  <script>
+    document.getElementById("add-course").addEventListener("click", () => {
+      const container = document.getElementById("dynamic-results");
+      const table = document.createElement("table");
+      table.className = "datadisplaytable";
+      table.innerHTML = `
+        <tr>
+          <th class="ddlabel">Instructor(s):</th>
+          <td class="dddefault">Heckman, David</td>
+        </tr>`;
+      container.appendChild(table);
+    });
+  </script>
+</body>
+</html>

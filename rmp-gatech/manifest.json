@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "RMP for Georgia Tech",
+  "version": "1.0.0",
+  "description": "Displays Rate My Professors ratings directly on the Georgia Tech OSCAR course registration page.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://oscar.gatech.edu/*",
+    "https://registration.banner.gatech.edu/*",
+    "https://www.ratemyprofessors.com/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://oscar.gatech.edu/*",
+        "https://registration.banner.gatech.edu/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

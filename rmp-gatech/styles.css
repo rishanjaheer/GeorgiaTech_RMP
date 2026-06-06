@@ -1,0 +1,110 @@
+.rmp-gt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: 6px;
+  vertical-align: middle;
+  position: relative;
+  white-space: nowrap;
+}
+
+.rmp-gt-rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.rmp-gt-rating.green {
+  background: #4CAF50;
+}
+
+.rmp-gt-rating.yellow {
+  background: #FFC107;
+  color: #333;
+}
+
+.rmp-gt-rating.red {
+  background: #F44336;
+}
+
+.rmp-gt-rating.gray {
+  background: #9E9E9E;
+}
+
+.rmp-gt-meta {
+  font-size: 10px;
+  color: #666;
+  line-height: 1.2;
+}
+
+.rmp-gt-diff {
+  font-size: 10px;
+  color: #888;
+  line-height: 1.2;
+}
+
+.rmp-gt-wta {
+  font-size: 10px;
+  color: #4CAF50;
+  line-height: 1.2;
+}
+
+.rmp-gt-warning {
+  font-size: 12px;
+  color: #FF9800;
+  cursor: help;
+}
+
+.rmp-gt-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rmp-gt-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+}
+
+.rmp-gt-badge:hover .rmp-gt-tooltip {
+  display: block;
+}
+
+.rmp-gt-not-found {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  color: #999;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+  cursor: default;
+  white-space: nowrap;
+}
